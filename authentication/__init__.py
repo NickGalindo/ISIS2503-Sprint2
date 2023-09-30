@@ -7,7 +7,6 @@ load_dotenv()
 
 mysqlConnectionPool = mysql.connector.pooling.MySQLConnectionPool(
     host=os.getenv("MYSQL_HOST"),
-    port=os.getenv("MYSQL_PORT"),
     user=os.getenv("MYSQL_USER"),
     password=os.getenv("MYSQL_PASSWORD"),
     pool_name="auth-pooling",

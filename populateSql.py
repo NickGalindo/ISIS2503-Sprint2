@@ -35,9 +35,9 @@ INSERT INTO auth.users (name, email, password_hashed, password_salt, state)
 VALUES
 """
 
-for i in range(5):
+for i in range(50):
     q = q + f"('User{i}', 'user{i}@wubbalubbadubdub.com', '{__getPasswordHash('123456')}', 'salt{i}', 'active')"
-    if i == 4:
+    if i == 49:
         q = q + ';'
     else:
         q = q + ',\n'

@@ -9,7 +9,7 @@ def login(request: Any):
     body_unicode = request.body.decode("utf-8")
     body_data = json.loads(body_unicode)
 
-    usr, flag = user.authenticate_user(body_data["username"], body_data["password"]):
+    usr, flag = user.authenticate_user(body_data["username"], body_data["password"])
 
     if flag:
         data = {"user_id": usr["user_id"], "email": usr["email"]}

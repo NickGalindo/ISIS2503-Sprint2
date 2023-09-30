@@ -43,5 +43,7 @@ for i in range(50):
         q = q + ',\n'
 
 __cursor.execute(q)
+
+__db.commit()
 __cursor.close()
 __db.close()

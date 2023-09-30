@@ -24,6 +24,9 @@ def test(request: Any):
     body_unicode = request.body.decode("utf-8")
     body_data = json.loads(body_unicode)
 
-    print(dbmanager.dbQuery(body_data["q"]))
+    if body_data["type"] == "e":
+        print(dbmanager.dbUpdate(body_data["q"]))
+    if body_data["type"] == "q":
+        print(dbmanager.dbQuery(body_data["q"]))
 
     return HttpResponse("ok")

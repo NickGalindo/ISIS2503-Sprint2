@@ -14,7 +14,7 @@ def login(request: Any):
     if flag:
         data = {"user_id": usr["user_id"], "email": usr["email"]}
         refresh_token = jwt.createRefreshToken(data=data)
-        data["sub"] = data["cedula"]
+        data["sub"] = data["email"]
         access_token = jwt.createAccessToken(data=data)
         return JsonResponse({"access_token": {"token": access_token, "token_type": "bearer"}, "refresh_token": {"token": refresh_token, "token_type": "bearer"}})
 

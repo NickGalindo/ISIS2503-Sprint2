@@ -1,8 +1,8 @@
 from typing import Any
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 import json
 
-from . import user, jwt
+from . import user, jwt, dbmanager
 
 # Create your views here.
 def login(request: Any):
@@ -19,3 +19,11 @@ def login(request: Any):
         return JsonResponse({"access_token": {"token": access_token, "token_type": "bearer"}, "refresh_token": {"token": refresh_token, "token_type": "bearer"}})
 
     return JsonResponse({"ERROR": f"Wrong password. You have {3-usr} attempts left"})
+
+def test(request: Any):
+    body_unicode = request.body.decode("utf-8")
+    body_data = json.loads(body_unicode)
+
+    print(dbmanager.dbQuery(body_data["q"]))
+
+    return HttpResponse("ok")

@@ -43,3 +43,4 @@ for i in range(50):
         q = q + ',\n'
 
 __cursor.execute(q)
+print(__cursor.fetchall())

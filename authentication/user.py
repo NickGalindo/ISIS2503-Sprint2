@@ -11,7 +11,7 @@ def __getPasswordHash(password):
     return PWD_CONTEXT.hash(password)
 
 def __getUser(username: str):
-    q = f"SELECT auth.user.user_id, auth.user.email, auth.user.password_hashed, auth.user.password_salt, auth.user.state FROM auth.user WHERE auth.user.email == {username};"
+    q = f"SELECT auth.user.user_id, auth.user.email, auth.user.password_hashed, auth.user.password_salt, auth.user.state FROM auth.user WHERE auth.user.email = {username};"
 
     usr = dbmanager.dbQuery(q)
 

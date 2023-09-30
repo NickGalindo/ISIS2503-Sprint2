@@ -35,5 +35,6 @@ def dbUpdate(upd: str):
         __cursor.close()
         __db.close()
 
+    __db.commit()
     __cursor.close()
     __db.close()

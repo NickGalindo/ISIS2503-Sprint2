@@ -15,7 +15,7 @@ mysqlConnectionPool = mysql.connector.pooling.MySQLConnectionPool(
 redisConnectionPool = redis.ConnectionPool(
     host=os.getenv("REDIS_HOST"),
     port=os.getenv("REDIS_PORT"),
-    decode_response=True,
+    decode_responses=True,
 )
 ACCESS_SECRET = os.getenv("JWT_ACCESS_SECRET")
 REFRESH_SECRET = os.getenv("JWT_REFRESH_SECRET")
